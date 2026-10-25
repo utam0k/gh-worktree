@@ -1,0 +1,24 @@
+# Example configuration file for gh-worktree
+# Copy this file to .gh-worktree.yml to use custom settings
+
+# Base path for worktrees (relative to git root)
+# Default: .worktree
+worktree_base_path: .worktree
+
+# Examples of custom paths:
+# worktree_base_path: .branches
+# worktree_base_path: .work
+# worktree_base_path: worktrees
+
+# Files and directories to symlink from main worktree to PR/work worktrees
+# These files/directories will be symlinked instead of copied
+symlink_files:
+  - .env
+  - .env.local
+  - CLAUDE.md
+  - .gh-worktree.yml
+  # Directories can also be symlinked
+  - .vscode
+  - .idea
+  - node_modules
+  # Add any other files or directories you want to share across worktrees

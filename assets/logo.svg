@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="gh-worktree">
+  <!-- Worktrees branching from one repository, their tips shown as diff markers:
+       review mode makes a PR's changes appear as local changes in the worktree. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2d333b"/>
+      <stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="252" height="252" rx="54" fill="url(#bg)" stroke="#3d444d" stroke-width="4"/>
+  <g fill="none" stroke="#e6edf3" stroke-width="16" stroke-linecap="round">
+    <path d="M128 200V84"/>
+    <path d="M128 184c0-32-58-26-58-58"/>
+    <path d="M128 150c0-30 58-24 58-54"/>
+  </g>
+  <circle cx="128" cy="204" r="20" fill="#e6edf3"/>
+  <circle cx="128" cy="58" r="26" fill="#2ea043"/>
+  <circle cx="186" cy="96" r="26" fill="#2ea043"/>
+  <circle cx="70" cy="126" r="26" fill="#da3633"/>
+  <g stroke="#fff" stroke-width="10" stroke-linecap="round">
+    <path d="M114 58h28M128 44v28"/>
+    <path d="M172 96h28M186 82v28"/>
+    <path d="M56 126h28"/>
+  </g>
+</svg>

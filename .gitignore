@@ -1,0 +1,36 @@
+# Binaries (anchored so that cmd/gh-worktree/ is not ignored)
+/gh-worktree
+/gh-worktree.exe
+/test/e2e/gh-worktree
+/dist/
+
+# Test artifacts
+*.test
+*.out
+
+# Local temp dirs
+.tmp/
+
+# Go build cache
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Worktree directories (default location)
+.worktree/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test config files (keep example configs)
+.gh-worktree.yml
+!.gh-worktree.example.yml

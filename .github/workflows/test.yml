@@ -1,0 +1,61 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Set up Go
+      uses: actions/setup-go@v7
+      with:
+        go-version-file: go.mod
+
+    - name: Check formatting
+      run: |
+        unformatted=$(gofmt -l .)
+        if [ -n "$unformatted" ]; then
+          echo "These files need gofmt:"
+          echo "$unformatted"
+          exit 1
+        fi
+
+    - name: Run go vet
+      run: go vet ./...
+
+    - name: Run unit tests
+      run: go test -v ./internal/...
+
+    - name: Run E2E tests
+      working-directory: test/e2e
+      run: go test -v ./...
+
+  cross-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Set up Go
+      uses: actions/setup-go@v7
+      with:
+        go-version-file: go.mod
+
+    # Same targets as cli/gh-extension-precompile builds on release.
+    - name: Build release targets
+      run: |
+        for p in darwin-amd64 darwin-arm64 freebsd-386 freebsd-amd64 freebsd-arm64 \
+                 linux-386 linux-amd64 linux-arm linux-arm64 \
+                 windows-386 windows-amd64 windows-arm64; do
+          echo "Building $p"
+          GOOS="${p%-*}" GOARCH="${p#*-}" CGO_ENABLED=0 go build -o /dev/null ./cmd/gh-worktree
+        done
