@@ -11,6 +11,11 @@
 # Local temp dirs
 .tmp/
 
+# Docs site
+docs/node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
 # Go build cache
 *.exe
 *.dll

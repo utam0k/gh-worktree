@@ -1,15 +1,13 @@
 <h1 align="center">
-  <img src="assets/logo.svg" width="128" alt=""><br>
+  <img src="docs/public/logo.svg" width="128" alt=""><br>
   gh-worktree
 </h1>
 
-A [GitHub CLI](https://cli.github.com/) extension that gives every pull request and every feature branch its own [git worktree](https://git-scm.com/docs/git-worktree), so you can review and develop without stashing or switching branches in your main checkout.
+A [GitHub CLI](https://cli.github.com/) extension that checks out each pull request you review and each branch you start into its own [git worktree](https://git-scm.com/docs/git-worktree). The checkout you are working in is left alone, so there is nothing to stash and no branch to switch.
 
-- **Review PRs in isolation**: `gh worktree pr 123` checks out PR #123 into its own directory. Your current branch and uncommitted changes are left alone.
-- **Review mode**: by default, the PR's changes show up as uncommitted changes in the worktree, so `git status`, `git diff`, and your editor's change markers show exactly what the PR changes.
-- **Development worktrees**: `gh worktree new feature/foo` creates a new branch in its own worktree.
-- **Housekeeping**: `sync` updates a PR worktree to the latest PR head, and `clean` removes worktrees whose PRs are closed or whose branches are merged.
-- **Interactive pickers** for PRs and worktrees when you leave out the number or branch.
+`gh worktree pr 123` puts PR #123 in `.worktree/pr/pr-123`, and `gh worktree new feature/foo` creates the branch in `.worktree/work/feature/foo`. PR worktrees open in review mode: the PR's changes show up as uncommitted changes, so `git status`, `git diff`, and the change markers in your editor show what the PR changes. `sync` brings a PR worktree up to date with the PR, and `clean` removes worktrees of closed PRs and merged branches.
+
+Documentation: https://utam0k.github.io/gh-worktree/
 
 ## Installation
 
